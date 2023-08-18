@@ -27,18 +27,6 @@ enum Direction
 	move_up,
 	move_down
 };
-
-//LPTSTR ReadConsoleOut(int x, int y)//Возвращает * на символ в заданных координатах консоли
-//{
-//	COORD pos;
-//	pos.X = x; pos.Y = y;
-//	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
-//	LPTSTR lpCharacter = new TCHAR[1];
-//	DWORD dwReaden = 0;
-//	ReadConsoleOutputCharacter(hCon, lpCharacter, 1, pos, &dwReaden);
-//	return lpCharacter;
-//}
-
 void SetPos(int x, int y)
 {
 	COORD pos;
@@ -48,12 +36,12 @@ void SetPos(int x, int y)
 
 void Keyboard(int& move)
 {
-	bool left_arrow = GetKeyState(0x25) & 0x8000;//движение влево
-	bool up_arrow = GetKeyState(0x26) & 0x8000;//движение вверх
-	bool right_arrow = GetKeyState(0x27) & 0x8000;//движение вправо
-	bool down_arrow = GetKeyState(0x28) & 0x8000;//движение вниз
+	bool left_arrow = GetKeyState(0x25) & 0x8000;//Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГўГ«ГҐГўГ®
+	bool up_arrow = GetKeyState(0x26) & 0x8000;//Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГўГўГҐГ°Гµ
+	bool right_arrow = GetKeyState(0x27) & 0x8000;//Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГўГЇГ°Г ГўГ®
+	bool down_arrow = GetKeyState(0x28) & 0x8000;//Г¤ГўГЁГ¦ГҐГ­ГЁГҐ ГўГ­ГЁГ§
 
-	bool esc = GetKeyState(0x1B) & 0x8000;//выход из игры
+	bool esc = GetKeyState(0x1B) & 0x8000;//ГўГ»ГµГ®Г¤ ГЁГ§ ГЁГЈГ°Г»
 
 	if (esc) { exit(0); }
 	if (left_arrow) { move = move_left; }
